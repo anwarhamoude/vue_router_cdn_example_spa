@@ -19,7 +19,7 @@
   <div id="app">
       <div class="container">
         <header>
-            <router-link to="/"><h1>New Reliance Media</h1></router-link>
+            <router-link exact to="/"><h1>New Reliance Media</h1></router-link>
         </header>
         <main class="flex">
             <aside>
@@ -44,6 +44,8 @@
       </div>
       </div>
 
+    <!-- scripts -->
+    <script src="views/not_found.js"></script>
     <script src="views/animation.js"></script>
     <script src="views/colorization.js"></script>
     <script src="views/technology.js"></script>
@@ -52,6 +54,7 @@
 
     <script>
         const routes = [
+            {path: '*', component: NotFound},
             {path: '/', component: Welcome},
             {path: '/animation', component: Animation},
             {path: '/colorization', component: Colorization},
@@ -64,6 +67,7 @@
         })
 
         var app = new Vue({
+          el:'#app',
             router
         }).$mount('#app')
 
