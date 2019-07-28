@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/vue-router"></script>
+
+    <title>Vue Router CDN</title>
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700,900&display=swap" rel="stylesheet">
+
+    <!-- styles -->
+    <link rel="stylesheet" type="text/css" href="public/css/stylesheet.css" media="screen" />
+</head>
+<body>
+  <div id="app">
+      <div class="container">
+        <header>
+            <router-link to="/"><h1>New Reliance Media</h1></router-link>
+        </header>
+        <main class="flex">
+            <aside>
+
+                <section class="mb-8">
+                  <h2 class="uppercase mb-4">The Brand</h2>
+                <ul class="list-reset">
+                <li><router-link to="/technology">Technology</router-link></li>
+                <li><router-link to="/typography">Typography</router-link></li>
+                <li><router-link to="/colorization">Colorization</router-link></li>
+                <li><router-link to="/animation">Animation</router-link></li>
+                </ul>
+                </section>
+
+            </aside>
+
+            <div class="primary">
+            <router-view></router-view>
+            </div>
+        </main>
+
+      </div>
+      </div>
+
+    <script src="views/animation.js"></script>
+    <script src="views/colorization.js"></script>
+    <script src="views/technology.js"></script>
+    <script src="views/typography.js"></script>
+    <script src="views/welcome.js"></script>
+
+    <script>
+        const routes = [
+            {path: '/', component: Welcome},
+            {path: '/animation', component: Animation},
+            {path: '/colorization', component: Colorization},
+            {path: '/technology', component: Technology},
+            {path: '/typography', component: Typography}
+        ]
+
+        const router = new VueRouter({
+            routes
+        })
+
+        var app = new Vue({
+            router
+        }).$mount('#app')
+
+    </script>
+
+</body>
+</html>
